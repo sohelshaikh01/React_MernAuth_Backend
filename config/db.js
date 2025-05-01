@@ -1,13 +1,12 @@
 import mongoose from "mongoose";
 import { DB_NAME } from "../constants/index.js";
-
-
-const connToMongo = "mongodb://127.0.0.1:27017";
-// process.env.MONGO_URI
+import { conf } from "./conf.js"
+ 
+const connToMongo = conf.mongoURI;
 
 const connectDB = async () => {
     try{
-        const conn = await mongoose.connect(`${connToMongo}/${DB_NAME}`);
+        const conn = await mongoose.connect(`mongodb+srv://appTester:appTester123@myapp-cluster.4xumt.mongodb.net/${DB_NAME}`);
         console.log(`MongoDB Connected: ${conn.connection.host}`);
     }
     catch(error) {
