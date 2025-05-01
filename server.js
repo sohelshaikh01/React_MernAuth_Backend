@@ -26,10 +26,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // 🔥 CORS - (Allow frontend to connect)
-cors({
-  origin: 'https://mern-auth-myapp.netlify.app',
-  credentials: true,
-})
+app.use(cors({
+  origin: "*",
+}))
 
 // Routes
 app.use('/api/users', userRoutes);
